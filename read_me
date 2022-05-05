@@ -1,0 +1,1 @@
+Project is set in a standard django structure. Only including views.py, solver.py, input_puzzle.html, and completed_puzzle.html
