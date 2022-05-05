@@ -1,1 +1,6 @@
 Project is set in a standard django structure. Only including views.py, solver.py, input_puzzle.html, and completed_puzzle.html
+
+
+Based off a recursive function to solve soduku puzzles. 
+
+Function notes in comments in 'solver.py'
