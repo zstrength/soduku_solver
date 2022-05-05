@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    #puzzle td{
+        width: 60px;
+        height: 60px;
+        border: 4px solid rgb(19, 17, 17);
+        text-align: center;
+    }
+
+    #row-1 :first-child, #row-1 :nth-child(2), #row-1 :nth-child(3), #row-1 :nth-child(7), #row-1 :nth-child(8), #row-1 :nth-child(9),
+    #row-2 :first-child, #row-2 :nth-child(2), #row-2 :nth-child(3), #row-2 :nth-child(7), #row-2 :nth-child(8), #row-2 :nth-child(9),
+    #row-3 :first-child, #row-3 :nth-child(2), #row-3 :nth-child(3), #row-3 :nth-child(7), #row-3 :nth-child(8), #row-3 :nth-child(9),
+
+    #row-4 :nth-child(4), #row-4 :nth-child(5), #row-4 :nth-child(6),
+    #row-5 :nth-child(4), #row-5 :nth-child(5), #row-5 :nth-child(6),
+    #row-6 :nth-child(4), #row-6 :nth-child(5), #row-6 :nth-child(6),
+
+
+    #row-7 :first-child, #row-7 :nth-child(2), #row-7 :nth-child(3), #row-7 :nth-child(7), #row-7 :nth-child(8), #row-7 :nth-child(9),
+    #row-8 :first-child, #row-8 :nth-child(2), #row-8 :nth-child(3), #row-8 :nth-child(7), #row-8 :nth-child(8), #row-8 :nth-child(9),
+    #row-9 :first-child, #row-9 :nth-child(2), #row-9 :nth-child(3), #row-9 :nth-child(7), #row-9 :nth-child(8), #row-9 :nth-child(9){
+        background-color: #9ea3a8;
+    
+    }
+
+    .input {
+        width: 55px;
+    }
+
+
+</style>
+
+    <table id="puzzle">
+
+        {% if solveable == True%}
+        
+            <h1>That was a solveable puzzle! It took {{ counter }} tries, but we got it.</h1>
+
+            {% for x in completed_puzzle %}
+                <tr id="row-{{ forloop.counter }}">
+                    {% for y in x %}
+                        <td class="column-{{ y }}">
+                            {{ y }}
+                        </td>
+                    {% endfor %} 
+                </tr>
+            {% endfor %}
+
+        {% else %}
+        
+            <h1>We tried 250,000 times. We couldn't find a solution. Maybe try it again?</h1>
+            
+        {% endif %}
+
+    </table>
+
+{% endblock content %}
